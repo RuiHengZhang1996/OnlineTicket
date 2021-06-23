@@ -9,4 +9,8 @@ public class HelloWorldController {
     public String index(){
         return "hello world!!";
     }
+    @RequestMapping("/xxxx")
+    public String xxx(){
+        return "xxx!!";
+    }
 }
