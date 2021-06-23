@@ -74,7 +74,7 @@ public class TicketDAOHibernateImpl implements TicketDAO {
 		//delete
 		Query theQuery = 
 				currentSession.createQuery(
-							"delete from ticket where id=:ticketId"
+							"delete from Ticket where id=:ticketId"
 						);
 		theQuery.setParameter("ticketId", theId);
 		theQuery.executeUpdate();

@@ -3,6 +3,7 @@ package com.brillio.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,5 +61,13 @@ public class TicketRestController {
 		return theTicket;
 	}
 	
-	
+	@DeleteMapping("/tickets/{ticketId}")
+	public String deleteTicket(@PathVariable int ticketId) {
+		Ticket tempTicket = ticketService.findById(ticketId);
+		
+		//throw exception if null
+		if(tempTicket == null) throw new RuntimeException("Ticket id not valid --" + ticketId);
+		ticketService.deleteById(ticketId);
+		return "Deleted Ticket Id" + ticketId;
+	}
 }
