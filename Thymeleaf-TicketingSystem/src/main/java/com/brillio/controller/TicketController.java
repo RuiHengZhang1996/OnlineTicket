@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.brillio.entity.Ticket;
@@ -28,7 +30,23 @@ public class TicketController {
 		
 		List<Ticket> theTicket = ticketService.findAll();
 		theModel.addAttribute("tickets", theTicket);
-		return "list-tickets";
+		return "tickets/list-tickets";
 	}
 	
+	@GetMapping("/showFormForBuy")
+	public String showFormForBuy(Model theModel) {
+		Ticket theTicket = new Ticket();
+		
+		theModel.addAttribute("ticket", theTicket);
+		
+		return "tickets/buy-form";
+	}
+	
+	@PostMapping("/buy")
+	public String saveTicket(@ModelAttribute("ticket") Ticket theTicket) {
+		//save the employee
+		ticketService.save(theTicket);
+		//use a redirect to prevent duplicate submissions 
+		return "redirect:/tickets/list";
+	}
 }

@@ -17,7 +17,11 @@
 <div class="container">
 	<h3>Tickets Directory</h3>
 	<hr>
-	
+	<!-- add button -->
+	<a th:href="@{/tickets/showFormForBuy}"
+		class="btn btn-primary btn-sm mb-3">
+		Buy ticket
+	</a>
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
@@ -26,6 +30,7 @@
 				<th>Contact</th>
 				<th>Travel Date</th>
 				<th>Return Date</th>
+				<th>Passenger</th>
 			</tr>
 		</thead>
 		
@@ -36,6 +41,7 @@
 				<td th:text="${tempTickets.contact}" />
 				<td th:text="${tempTickets.travelDate}" />
 				<td th:text="${tempTickets.returnDate}" />
+				<td th:text="${tempTickets.passenger}" />
 				
 			</tr>		
 		</tbody>
