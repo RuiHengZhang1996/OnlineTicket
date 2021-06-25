@@ -21,6 +21,10 @@
 		<p class="h4 mb-4">Buying tickets...</p>
 		<form action="#" th:action="@{/tickets/buy}"
 						th:object="${ticket}" method="POST">
+						
+			<!-- add hidden form for update -->
+			<input type="hidden" th:field="*{id}" placeholder="id"/>
+			
 			<input type="text" th:field="*{name}"
 					class="form-control mb-4 col-4" placeholder="Name">
 			<input type="text" th:field="*{address}"

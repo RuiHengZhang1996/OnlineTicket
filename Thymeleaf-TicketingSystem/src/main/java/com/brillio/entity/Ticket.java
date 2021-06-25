@@ -39,6 +39,19 @@ public class Ticket {
 	//define constructors
 	
 	public Ticket() {}
+	
+	
+	public Ticket(int id, String address, String contact, Date travelDate, Date returnDate, int passenger,
+			String name) {
+		this.id = id;
+		this.address = address;
+		this.contact = contact;
+		this.travelDate = travelDate;
+		this.returnDate = returnDate;
+		this.passenger = passenger;
+		this.name = name;
+	}
+
 
 	public Ticket(String name, String address, String contact, Date travelDate, Date returnDate, int passenger) {
 		this.name = name;
@@ -49,25 +62,30 @@ public class Ticket {
 		this.passenger = passenger;
 	}
 	//define getter/setter
-	public int getId() {
-		return id;
-	}
+	
 	
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	public String getName() {
-		return name;
+	public int getId() {
+		return id;
 	}
+
+
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
 	}
 
 	public String getAddress() {
 		return address;
 	}
-
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
