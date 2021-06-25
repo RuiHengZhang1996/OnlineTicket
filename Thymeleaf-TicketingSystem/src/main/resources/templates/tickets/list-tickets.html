@@ -26,11 +26,12 @@
 		<thead class="thead-dark">
 			<tr>
 				<th>Name</th>
-				<th>Address</th>
+				<th>Destination</th>
 				<th>Contact</th>
 				<th>Travel Date</th>
 				<th>Return Date</th>
 				<th>Passenger</th>
+				<th>Prices</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -43,10 +44,17 @@
 				<td th:text="${tempTickets.travelDate}" />
 				<td th:text="${tempTickets.returnDate}" />
 				<td th:text="${tempTickets.passenger}" />
-				
+				<td th:text="1" />
 				<td>
-					<a th:href="@{/tickets/showFormForUpdate(ticketId=${tempTickets.id})} ">
+					<a th:href="@{/tickets/showFormForUpdate(ticketId=${tempTickets.id})}"
+						class="btn btn-info btn-sm">
 						Update
+					</a>
+					
+					<a th:href="@{/tickets/delete(ticketId=${tempTickets.id})} "
+						class="btn btn-danger btn-sm"
+						onclick="if (!(confirm('Are sure you want to return this ticket?'))) return false">
+						Return
 					</a>
 				</td>
 			</tr>		

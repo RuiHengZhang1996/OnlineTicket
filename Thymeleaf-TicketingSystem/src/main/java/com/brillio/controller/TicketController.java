@@ -67,5 +67,10 @@ public class TicketController {
 		return "redirect:/tickets/list";
 	}
 	
+	@GetMapping("/delete") 
+	public String delete(@RequestParam("ticketId") int theId) {
+		ticketService.deleteById(theId);
+		return "redirect:/tickets/list";
+	}
 	
 }

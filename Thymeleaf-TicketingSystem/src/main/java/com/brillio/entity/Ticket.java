@@ -19,7 +19,7 @@ public class Ticket {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="address")
+	@Column(name="destination")
 	private String address;
 	
 	@Column(name="contact")
