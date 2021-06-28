@@ -19,7 +19,13 @@
                         </td>
                         <td>
                             <div class="items">
-                                <label>Quantity:</label> {{ tempCartItem.quantity }}
+                                <label>Quantity:</label> 
+                                <div class="row no-gutters">
+                                    <div class="col">
+                                        <button class="btn btn-primary btn-sm"></button>
+                                    </div>
+                                    
+                                </div>
                             </div>
 
                             <p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:
