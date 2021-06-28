@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Tickets Directory</title>
+
+</head>
+
+<body>
+
+<div class="container">
+	<h3>Tickets Directory</h3>
+	<hr>
+	<!-- add button -->
+	<a th:href="@{/tickets/showFormForBuy}"
+		class="btn btn-primary btn-sm mb-3">
+		Buy ticket
+	</a>
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Name</th>
+				<th>Destination</th>
+				<th>Contact</th>
+				<th>Travel Date</th>
+				<th>Return Date</th>
+				<th>Passenger</th>
+				<th>Prices</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempTickets : ${tickets}">
+				<td th:text="${tempTickets.name}" />
+				<td th:text="${tempTickets.address}" />
+				<td th:text="${tempTickets.contact}" />
+				<td th:text="${tempTickets.travelDate}" />
+				<td th:text="${tempTickets.returnDate}" />
+				<td th:text="${tempTickets.passenger}" />
+				<td th:text="1" />
+				<td>
+					<a th:href="@{/tickets/showFormForUpdate(ticketId=${tempTickets.id})}"
+						class="btn btn-info btn-sm">
+						Update
+					</a>
+					
+					<a th:href="@{/tickets/delete(ticketId=${tempTickets.id})} "
+						class="btn btn-danger btn-sm"
+						onclick="if (!(confirm('Are sure you want to return this ticket?'))) return false">
+						Return
+					</a>
+				</td>
+			</tr>		
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
